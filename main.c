@@ -29,5 +29,7 @@ int main(int argc, char *argv[])
 	}
 	freeCharPointer(&buffer);/*this is necessary, getline needs to be freed even if it fails*/
 
+//	freeStack(stack);
+
 	return (0);
 }
