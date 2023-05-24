@@ -14,7 +14,7 @@ void processInstruction(stack_t **top, char *p)
 		pushPreProcessing(top, strstr(p, "push"));
 	else if (strstr(p, "pall") != NULL)
 		pall(top);
-	else if (strstr(p, "pall") != NULL)
+	else if (strstr(p, "pint") != NULL)
 		pint(top);
 	else if (strstr(p, "pop") != NULL)
 		pop(top);
