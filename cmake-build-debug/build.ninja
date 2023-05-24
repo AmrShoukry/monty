@@ -67,6 +67,12 @@ build CMakeFiles/monty.dir/utilities.c.o: C_COMPILER__monty_Debug /home/vboxuser
   OBJECT_DIR = CMakeFiles/monty.dir
   OBJECT_FILE_DIR = CMakeFiles/monty.dir
 
+build CMakeFiles/monty.dir/memoryManagement.c.o: C_COMPILER__monty_Debug /home/vboxuser/monty/memoryManagement.c || cmake_object_order_depends_target_monty
+  DEP_FILE = CMakeFiles/monty.dir/memoryManagement.c.o.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu90
+  OBJECT_DIR = CMakeFiles/monty.dir
+  OBJECT_FILE_DIR = CMakeFiles/monty.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target monty
@@ -75,7 +81,7 @@ build CMakeFiles/monty.dir/utilities.c.o: C_COMPILER__monty_Debug /home/vboxuser
 #############################################
 # Link the executable monty
 
-build monty: C_EXECUTABLE_LINKER__monty_Debug CMakeFiles/monty.dir/main.c.o CMakeFiles/monty.dir/mandatory.c.o CMakeFiles/monty.dir/utilities.c.o
+build monty: C_EXECUTABLE_LINKER__monty_Debug CMakeFiles/monty.dir/main.c.o CMakeFiles/monty.dir/mandatory.c.o CMakeFiles/monty.dir/utilities.c.o CMakeFiles/monty.dir/memoryManagement.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/monty.dir
   POST_BUILD = :
