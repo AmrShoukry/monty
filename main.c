@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	FILE* fptr;
-	stack_t *stack;
+	stack_t *stack = NULL;
 	char *buffer = NULL;
 	size_t bufSize = 0;
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	}
 	freeCharPointer(&buffer);/*this is necessary, getline needs to be freed even if it fails*/
 
-//	freeStack(&stack);
+	freeStack(&stack);
 
 	return (0);
 }
