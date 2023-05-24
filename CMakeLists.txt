@@ -3,4 +3,4 @@ project(monty C)
 
 set(CMAKE_C_STANDARD 90)
 
-add_executable(monty main.c mandatory.h mandatory.c utilities.h datastructures.h utilities.c memoryManagement.c monty.h)
+add_executable(monty main.c mandatory.c utilities.c memoryManagement.c monty.h mandatory2.c)

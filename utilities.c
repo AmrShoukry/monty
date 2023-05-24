@@ -20,8 +20,8 @@ void processInstruction(stack_t **top, char *p)
 		pop(top);
 	else if (strstr(p, "swap") != NULL)
 		swap(top);
-//	else if (strstr(p, "nop") != NULL)
-//		nop();
+	else if (strstr(p, "nop") != NULL)
+		nop();
 }
 
 /**

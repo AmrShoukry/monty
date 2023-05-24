@@ -88,10 +88,14 @@ void pint(stack_t **top)
 
 stack_t *pop(stack_t **top)
 {
+	stack_t *temp = NULL;
 	if (top == NULL || *top == NULL)
 		return (NULL);
+	temp = *top;
 
 	(*top) = (*top)->prev;
+
+	free(temp);
 
 	if ((*top) != NULL)
 		(*top)->next = NULL;
