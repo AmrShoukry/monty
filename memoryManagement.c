@@ -19,7 +19,7 @@ void freeCharPointer(char **freeMe)
  */
 void freeStack(stack_t **stack)
 {
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 		return;
 
 	if ((*stack)->next != NULL)
@@ -27,6 +27,6 @@ void freeStack(stack_t **stack)
 	if ((*stack)->prev != NULL)
 		freeStack(&((*stack)->prev));
 
-	free(stack);
-	stack = NULL;
+	free(*stack);
+	*stack = NULL;
 }
