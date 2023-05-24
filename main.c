@@ -5,20 +5,20 @@
 /**
  * main - handles the file
  * opens the file specified in argv[1
- * argc: number of args, should always be 2
- * argv: the args
+ * @argc: number of args, should always be 2
+ * @argv: the args
  * Return: exit code
  */
 int main(int argc, char *argv[])
 {
-	FILE* fptr;
+	FILE *fptr;
 	stack_t *stack = NULL;
 	char *buffer = NULL;
 	size_t bufSize = 0;
 
 	if (argc != 2)
 	{
-		fprintf( stderr, "USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (8);/*need to validate if this is the correct EXIT_FAILURE*/
 	}
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		processInstruction(&stack, buffer);
 		freeCharPointer(&buffer);
 	}
-	freeCharPointer(&buffer);/*this is necessary, getline needs to be freed even if it fails*/
+	freeCharPointer(&buffer);
 
 	freeStack(&stack);
 
