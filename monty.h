@@ -36,14 +36,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **top, int n);/*function to push a number onto the stack*/
-void pall(stack_t **top);/*function to print the entire stack*/
-void pint(stack_t **top);/*prints the value of top followed by a newline or sends an error message if NULL*/
-stack_t *pop(stack_t **top);/*pops the stack, returns new top of stack, or sends an error message*/
-stack_t *swap(stack_t **top);/*swaps top with its previous, or sends an error message if stacksize is smaller than 2*/
-void nop();/*DOES LITERALLY NOTHING*/
+void push(stack_t **top, int n);
+void pall(stack_t **top);
+void pint(stack_t **top);
+stack_t *pop(stack_t **top);
+stack_t *swap(stack_t **top);
+void nop(void);
 
-void processInstruction(stack_t **top, char *p);/*takes line and chooses what to do with it, processes input*/
+void processInstruction(stack_t **top, char *p);
 stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
