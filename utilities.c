@@ -1,6 +1,6 @@
-#include <string.h>
-#include <ctype.h>
-#include "utilities.h"
+
+#include "monty.h"
+
 
 /**
  * processInstruction - chooses which function the line needs
@@ -14,12 +14,12 @@ void processInstruction(stack_t **top, char *p)
 		pushPreProcessing(top, strstr(p, "push"));
 	else if (strstr(p, "pall") != NULL)
 		pall(top);
-//	else if (strstr(p, "pall") != NULL)
-//		pint(top);
-//	else if (strstr(p, "pop") != NULL)
-//		pop(top);
-//	else if (strstr(p, "swap") != NULL)
-//		swap(top);
+	else if (strstr(p, "pall") != NULL)
+		pint(top);
+	else if (strstr(p, "pop") != NULL)
+		pop(top);
+	else if (strstr(p, "swap") != NULL)
+		swap(top);
 //	else if (strstr(p, "nop") != NULL)
 //		nop();
 }

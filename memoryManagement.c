@@ -1,4 +1,4 @@
-#include "utilities.h"
+#include "monty.h"
 
 /**
  * freeCharPointer - frees and nulls a char pointer
