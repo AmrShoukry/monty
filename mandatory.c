@@ -51,9 +51,7 @@ void pall(stack_t **top)
 
 	while (current != NULL)
 	{
-		printf("%d", current->n);
-		if (current->prev != NULL)
-			printf("\n");
+		printf("%d\n", current->n);
 		current = current->prev;
 	}
 }
