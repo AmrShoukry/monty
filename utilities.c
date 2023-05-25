@@ -52,7 +52,7 @@ void processInstruction(int i, stack_t **top, char *p)
 	char *clear_ins = strtok(instruction, "\n");
 	int numcode = check_argument(argument);
 
-	if (clear_ins == NULL || clear_ins == "")
+	if (clear_ins == NULL)
 		return;
 
 	if (strcmp(clear_ins, "push") == 0)
