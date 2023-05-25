@@ -9,6 +9,7 @@
 char *trim_text(char *text)
 {
 	size_t i = 0;
+
 	while (i < strlen(text))
 	{
 		if (text[i] == '\t')
