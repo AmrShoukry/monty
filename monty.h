@@ -51,4 +51,7 @@ stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
 
+//BONUS
+void sub(stack_t **top, int i);
+
 #endif
