@@ -99,3 +99,43 @@ void pstr(stack_t **top)
 	}
 	printf("\n");
 }
+
+
+
+
+/**
+ * rotl - print top values as a string
+ *
+ * Description: 'Function'
+ *
+ * @top: top node of the stack
+ *
+ * Return: void.
+ */
+
+void rotl(stack_t **top)
+{
+	stack_t *current = *top;
+	stack_t *temp = *top;
+
+	if (current == NULL || current->prev == NULL)
+		return;
+	
+	if (current->prev->prev == NULL)
+	{
+		swap(top, 0);
+		return;
+	}
+
+	while (current->prev != NULL)
+	{
+		current = current->prev;
+	}
+	temp = (*top)->prev;
+	current->prev = *top;
+	(*top)->next = current;
+	(*top)->prev = NULL;
+	temp->next = NULL;
+
+	*top = temp;
+}
