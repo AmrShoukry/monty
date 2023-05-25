@@ -30,6 +30,7 @@ int check_argument(int *numcode, char *argument)
 {
 	int i = 0;
 	int operator = 1;
+	int found = 0;
 
 	if (argument == NULL || argument[0] == '\n')
 		return (-1);
@@ -38,11 +39,13 @@ int check_argument(int *numcode, char *argument)
 	{
 		if (!(argument[i] >= '0' && argument[i] <= '9'))
 		{
-			if (operator == 1 && argument[i] == '-')
+			if (operator == 1 && argument[i] == '-' && found == 0)
 				operator = -1;
 			else
 				return (-1);
 		}
+		else
+			found = 1;
 		i++;
 	}
 
