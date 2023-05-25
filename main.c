@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		freeCharPointer(&buffer);
 	}
 	freeCharPointer(&buffer);
-
+	fclose(fptr);
 	freeStack(&stack);
 
 	fclose(fptr);

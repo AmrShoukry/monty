@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 push 100045
 ush 41
 push 15 op
+=======
+push 1
+push 2
+push 3
+push 4
+swap
+pint
+swap
+pop
+swap
+>>>>>>> 1851c18c239481be93c978e2710759d108c0dd53
 pall

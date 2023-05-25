@@ -41,6 +41,9 @@ void freeStack(stack_t **stack)
 		tempPrev->next = NULL;
 		freeStack(&tempPrev);
 	}
+<<<<<<< HEAD
 	/*free(*stack);
 	*stack = NULL;*/
+=======
+>>>>>>> 1851c18c239481be93c978e2710759d108c0dd53
 }
