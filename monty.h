@@ -51,8 +51,9 @@ stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
 
-//BONUS
+/* BONUS */
 void sub(stack_t **top, int i);
+void pchar(stack_t **top, int i);
 void divide(stack_t **top, int i);
 void mul(stack_t **top, int i);
 

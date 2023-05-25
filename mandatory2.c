@@ -39,3 +39,31 @@ void add(stack_t **top, int i)
 }
 
 
+/**
+ * pchar - print top value as a character
+ *
+ * Description: 'Function'
+ *
+ * @top: top node of the stack
+ * @i: line number
+ *
+ * Return: void.
+ */
+
+void pchar(stack_t **top, int i)
+{
+	int value;
+
+	if (top == NULL || *top == NULL)
+	{
+		fprintf(stderr, "L%i: can't pchar, stack empty\n", i);
+		exit(EXIT_FAILURE);
+	}
+	value = (*top)->n;
+	if (!((value >= 65 && value <= 90) || (value >= 97 && value <= 122)))
+	{
+		fprintf(stderr, "L%i: can't pchar, value out of range\n", i);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", value);
+}
