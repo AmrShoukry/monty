@@ -31,7 +31,7 @@ int check_argument(int *numcode, char *argument)
 	int i = 0;
 	int operator = 1;
 
-	if (argument == NULL)
+	if (argument == NULL || argument[0] == '\n')
 		return (-1);
 
 	while (argument[i] != '\0' && argument[i] != '\n')
