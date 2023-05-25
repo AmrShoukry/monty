@@ -101,6 +101,8 @@ void processInstruction(int i, stack_t **top, char *p)
 		divide(top, i);
 	else if (strcmp(clear_ins, "mul") == 0)
 		mul(top, i);
+	else if (strcmp(clear_ins, "mod") == 0)
+		mod(top, i);
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

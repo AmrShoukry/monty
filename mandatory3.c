@@ -63,3 +63,29 @@ void mul(stack_t **top, int i)
 	pop(top, i);
 }
 
+
+/**
+ * mod - ...
+ * @top: ...
+ * @i: ...
+ */
+
+void mod(stack_t **top, int i)
+{
+	if (top == NULL || *top == NULL || (*top)->prev == NULL)
+	{
+		fprintf(stderr, "L%i: can't mod, stack too short\n", i);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*top)->n == 0)
+	{
+		fprintf(stderr, "L%i: division by zero\n", i);
+		exit(EXIT_FAILURE);
+	}
+
+	(*top)->prev->n = (*top)->prev->n % (*top)->n;
+
+	pop(top, i);
+}
+
