@@ -97,6 +97,8 @@ void processInstruction(int i, stack_t **top, char *p)
 		nop();
 	else if (strcmp(clear_ins, "sub") == 0)
 		sub(top, i);
+	else if (strcmp(clear_ins, "div") == 0)
+		divide(top, i);
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
