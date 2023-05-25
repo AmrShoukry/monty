@@ -44,11 +44,11 @@ stack_t *swap(stack_t **top, int i);
 void add(stack_t **top, int i);
 void nop(void);
 
+char *trim_text(char *text);
+int check_argument(char *argument);
 void processInstruction(int i, stack_t **top, char *p);
 stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
-int numberOfDigits(char *number);
-void pushPreProcessing(stack_t **top, char *substrBeginning);
 
 #endif
