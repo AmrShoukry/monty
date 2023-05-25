@@ -42,6 +42,7 @@ int check_argument(int *numcode, char *argument)
 
 	*numcode = atoi(argument);
 	return (0);
+i
 }
 
 /**
