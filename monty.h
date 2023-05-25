@@ -42,6 +42,7 @@ void pint(stack_t **top, int i);
 stack_t *pop(stack_t **top, int i);
 stack_t *swap(stack_t **top, int i);
 void add(stack_t **top, int i);
+void pchar(stack_t **top, int i);
 void nop(void);
 
 char *trim_text(char *text);

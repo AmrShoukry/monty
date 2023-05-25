@@ -91,6 +91,8 @@ void processInstruction(int i, stack_t **top, char *p)
 		swap(top, i);
 	else if (strcmp(clear_ins, "add") == 0)
 		add(top, i);
+	else if (strcmp(clear_ins, "pchar") == 0)
+		pchar(top, i);
 	else if (strcmp(clear_ins, "nop") == 0 || clear_ins[0] == '#')
 		nop();
 	else
