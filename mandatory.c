@@ -94,11 +94,12 @@ stack_t *pop(stack_t **top)
 		return (NULL);
 	temp = *top;
 
+
 	(*top) = (*top)->prev;
 
 	if ((*top) != NULL)
 		(*top)->next = NULL;
-
+	free(temp);
 	return ((*top));
 }
 

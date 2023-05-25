@@ -41,7 +41,5 @@ int main(int argc, char *argv[])
 	fclose(fptr);
 	freeStack(&stack);
 
-	fclose(fptr);
-
 	return (0);
 }
