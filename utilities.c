@@ -1,6 +1,61 @@
 
 #include "monty.h"
 
+int check_opcode(char *op_code)
+{
+	int i = 0;
+
+	if (op_code == NULL)
+			return (-1);
+
+	while(op_code[i] != '\0' && op_code[i] != '\n')
+	{
+		if (!(op_code[i] >= '0' && op_code[i] <= '9'))
+		{
+			return (-1);
+		}
+		i++;
+	}
+
+	return (atoi(op_code));
+}
+char **splitInstruction(char *p)
+{
+	/*char **arr;
+	int i = 0;
+	int j;
+	int LeftPointer = 0;
+	int RightPointer = 0;
+	int count = 0;
+	int found = 0;
+
+	arr = malloc(sizeof(char *) * 2);
+
+	while (p[RightPointer] != '\0')
+	{
+		if (p[RightPointer] == ' ')
+		{
+			count = RightPointer - LeftPointer;
+			arr[i] = malloc(sizeof(char *) * (count + 1));
+			for(j = LeftPointer; j <= RightPointer; j++)
+			{
+				arr[i][j - LeftPointer] = p[j];
+			}
+			arr[i][i] = '\0';
+			i++;
+			LeftPointer = RightPointer + 1;
+			found = 1;
+		}
+		if (found == 1)
+		{
+			
+		}
+		RightPointer++;
+	}
+
+	return (arr);*/
+}
+
 
 /**
  * processInstruction - chooses which function the line needs
@@ -9,19 +64,32 @@
  */
 void processInstruction(stack_t **top, char *p)
 {
-
-	if (strstr(p, "push") != NULL)
-		pushPreProcessing(top, strstr(p, "push"));
-	else if (strstr(p, "pall") != NULL)
+	char *instruction = strtok(p, " ");
+	char *opcode = strtok(NULL, " ");
+	char *other = strtok(NULL, " ");
+	char *clear_ins = strtok(instruction, "\n");
+//printf("Checkpoint====================\n");
+	int numcode = check_opcode(opcode);
+/*	printf("instruction: %s\n", instruction);
+	printf("opcode: %s\n", opcode);
+	printf("other: %s\n", other);
+	printf("numcode: %d\n", numcode);
+*/
+	if (strcmp(clear_ins, "push") == 0 && numcode != -1 && other == NULL)
+		/*pushPreProcessing(top, strstr(p, "push"));*/
+		push(top, numcode);
+	else if (strcmp(clear_ins, "pall") == 0 && numcode == -1 && other == NULL)
 		pall(top);
-	else if (strstr(p, "pint") != NULL)
+	else if (strcmp(clear_ins, "pint") == 0 && numcode == -1 && other == NULL)
 		pint(top);
-	else if (strstr(p, "pop") != NULL)
+	else if (strcmp(clear_ins, "pop") == 0 && numcode == -1 && other == NULL)
 		pop(top);
-	else if (strstr(p, "swap") != NULL)
+	else if (strcmp(clear_ins, "swap") == 0 && numcode == -1 && other == NULL)
 		swap(top);
-	else if (strstr(p, "nop") != NULL)
+	else if (strcmp(clear_ins, "nop") == 0 && numcode == -1 && other == NULL)
 		nop();
+	else
+		printf("Invalid\n");
 }
 
 /**
