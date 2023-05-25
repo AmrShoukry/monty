@@ -19,43 +19,6 @@ int check_opcode(char *op_code)
 
 	return (atoi(op_code));
 }
-char **splitInstruction(char *p)
-{
-	/*char **arr;
-	int i = 0;
-	int j;
-	int LeftPointer = 0;
-	int RightPointer = 0;
-	int count = 0;
-	int found = 0;
-
-	arr = malloc(sizeof(char *) * 2);
-
-	while (p[RightPointer] != '\0')
-	{
-		if (p[RightPointer] == ' ')
-		{
-			count = RightPointer - LeftPointer;
-			arr[i] = malloc(sizeof(char *) * (count + 1));
-			for(j = LeftPointer; j <= RightPointer; j++)
-			{
-				arr[i][j - LeftPointer] = p[j];
-			}
-			arr[i][i] = '\0';
-			i++;
-			LeftPointer = RightPointer + 1;
-			found = 1;
-		}
-		if (found == 1)
-		{
-			
-		}
-		RightPointer++;
-	}
-
-	return (arr);*/
-}
-
 
 /**
  * processInstruction - chooses which function the line needs
@@ -68,15 +31,9 @@ void processInstruction(stack_t **top, char *p)
 	char *opcode = strtok(NULL, " ");
 	char *other = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
-//printf("Checkpoint====================\n");
 	int numcode = check_opcode(opcode);
-/*	printf("instruction: %s\n", instruction);
-	printf("opcode: %s\n", opcode);
-	printf("other: %s\n", other);
-	printf("numcode: %d\n", numcode);
-*/
+
 	if (strcmp(clear_ins, "push") == 0 && numcode != -1 && other == NULL)
-		/*pushPreProcessing(top, strstr(p, "push"));*/
 		push(top, numcode);
 	else if (strcmp(clear_ins, "pall") == 0 && numcode == -1 && other == NULL)
 		pall(top);
@@ -90,38 +47,6 @@ void processInstruction(stack_t **top, char *p)
 		nop();
 	else
 		printf("Invalid\n");
-}
-
-/**
- * pushPreProcessing - pre processes input for the push function
- * @top: the stack
- * @substrBeginning: the beginning of the word "push"
- */
-void pushPreProcessing(stack_t **top, char *substrBeginning)
-{
-	int numOfDigits = 0;
-	char *number;
-
-	numOfDigits = numberOfDigits(substrBeginning + 5);
-	number = malloc(sizeof(char) * numOfDigits + 1);
-	strncpy(number, substrBeginning + 5, numOfDigits);
-	number[numOfDigits] = '\0';
-	push(top, atoi(number));
-	free(number);
-}
-
-/**
- * numberOfDigits - gets the number of digits
- * @number: ...
- * Return: int
- */
-int numberOfDigits(char *number)
-{
-	int i = 0;
-
-	while (isdigit(number[i]))
-		i++;
-	return (i);
 }
 
 /**

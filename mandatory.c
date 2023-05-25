@@ -96,8 +96,6 @@ stack_t *pop(stack_t **top)
 
 	(*top) = (*top)->prev;
 
-	free(temp);
-
 	if ((*top) != NULL)
 		(*top)->next = NULL;
 
