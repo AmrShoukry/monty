@@ -1,20 +1,23 @@
-
 #include "monty.h"
 
 /**
- * check_opcode - convert opcode into digits
- * @op_code: op_code number
- * Return: op_code digits
+ * trim_text - remove whitespaces
+ * @text: input instruction
+ * Return: trimmed text
  */
 
 char *trim_text(char *text)
 {
 		while (*text == ' ' || *text == 9)
-		{
 			text++;
-		}
-		return text;
+		return (text);
 }
+
+/**
+ * check_argument - convert argument into digits
+ * @argument: argument number
+ * Return: argument digits
+ */
 
 int check_argument(char *argument)
 {
@@ -48,10 +51,9 @@ void processInstruction(int i, stack_t **top, char *p)
 	char *argument = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
 	int numcode = check_argument(argument);
-printf("clear instruction:%s\n", clear_ins);
 
 	if (clear_ins == NULL || clear_ins == "")
-			return;
+		return;
 
 	if (strcmp(clear_ins, "push") == 0)
 	{
@@ -75,8 +77,6 @@ printf("clear instruction:%s\n", clear_ins);
 		add(top, i);
 	else if (strcmp(clear_ins, "nop") == 0)
 		nop();
-	else if (strcmp(clear_ins, "") == 0)
-		printf("EMPTY\n");
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

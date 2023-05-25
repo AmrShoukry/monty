@@ -27,8 +27,6 @@ void nop(void)
 
 void add(stack_t **top, int i)
 {
-	stack_t *temp = *top;
-
 	if (top == NULL || *top == NULL || (*top)->prev == NULL)
 	{
 		fprintf(stderr, "L%i: can't add, stack too short\n", i);
@@ -36,9 +34,8 @@ void add(stack_t **top, int i)
 	}
 
 	(*top)->prev->n = (*top)->prev->n + (*top)->n;
-	(*top) = (*top)->prev;
 
-	free(temp);
+	pop(top, i);
 }
 
 
