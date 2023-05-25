@@ -41,6 +41,4 @@ void freeStack(stack_t **stack)
 		tempPrev->next = NULL;
 		freeStack(&tempPrev);
 	}
-	free(*stack);
-	*stack = NULL;
 }
