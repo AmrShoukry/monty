@@ -7,6 +7,13 @@
  * Return: op_code digits
  */
 
+char *trim_text(char *text)
+{
+	while (*text == ' ')
+		text++;
+	return text;
+}
+
 int check_argument(char *argument)
 {
 	int i = 0;
@@ -34,10 +41,15 @@ int check_argument(char *argument)
  */
 void processInstruction(int i, stack_t **top, char *p)
 {
-	char *instruction = strtok(p, " ");
+	char *trimmed_p = trim_text(p);
+	char *instruction = strtok(trimmed_p, " ");
 	char *argument = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
 	int numcode = check_argument(argument);
+printf("clear instruction:%s\n", clear_ins);
+
+	if (clear_ins == NULL || clear_ins == "")
+			return;
 
 	if (strcmp(clear_ins, "push") == 0)
 	{
@@ -61,6 +73,8 @@ void processInstruction(int i, stack_t **top, char *p)
 		add(top, i);
 	else if (strcmp(clear_ins, "nop") == 0)
 		nop();
+	else if (strcmp(clear_ins, "") == 0)
+		printf("EMPTY\n");
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

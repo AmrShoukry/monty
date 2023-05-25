@@ -37,7 +37,7 @@ void add(stack_t **top, int i)
 
 	(*top)->prev->n = (*top)->prev->n + (*top)->n;
 	(*top) = (*top)->prev;
-	
+
 	free(temp);
 }
 
