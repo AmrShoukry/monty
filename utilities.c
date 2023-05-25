@@ -8,14 +8,14 @@
 
 char *trim_text(char *text)
 {
-	int i = 0;
-		while (i < strlen(text))
-		{
-			if (text[i] == '\t')
-				text[i] = ' ';
-			i++;
-		}
-		return (text);
+	size_t i = 0;
+	while (i < strlen(text))
+	{
+		if (text[i] == '\t')
+			text[i] = ' ';
+		i++;
+	}
+	return (text);
 }
 
 /**
@@ -47,7 +47,6 @@ int check_argument(int *numcode, char *argument)
 
 	*numcode = atoi(argument);
 	return (0);
-i
 }
 
 /**
