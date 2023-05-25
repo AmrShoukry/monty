@@ -42,7 +42,6 @@ void pint(stack_t **top, int i);
 stack_t *pop(stack_t **top, int i);
 stack_t *swap(stack_t **top, int i);
 void add(stack_t **top, int i);
-void pchar(stack_t **top, int i);
 void nop(void);
 
 char *trim_text(char *text);
@@ -52,7 +51,9 @@ stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
 
-//BONUS
+/* BONUS */
 void sub(stack_t **top, int i);
+void pchar(stack_t **top, int i);
+
 
 #endif
