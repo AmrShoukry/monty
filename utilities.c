@@ -9,9 +9,11 @@
 
 char *trim_text(char *text)
 {
-	while (*text == ' ')
-		text++;
-	return text;
+		while (*text == ' ' || *text == 9)
+		{
+			text++;
+		}
+		return text;
 }
 
 int check_argument(char *argument)
