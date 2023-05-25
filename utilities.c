@@ -40,21 +40,21 @@ void processInstruction(int i, stack_t **top, char *p)
 	char *clear_ins = strtok(instruction, "\n");
 	int numcode = check_opcode(opcode);
 
-	if (strcmp(clear_ins, "push") == 0 && numcode != -1 && other == NULL)
+	if (strcmp(clear_ins, "push") == 0 && numcode != -1)
 		push(top, numcode);
-	else if (strcmp(clear_ins, "pall") == 0 && numcode == -1 && other == NULL)
+	else if (strcmp(clear_ins, "pall") == 0)
 		pall(top);
-	else if (strcmp(clear_ins, "pint") == 0 && numcode == -1 && other == NULL)
+	else if (strcmp(clear_ins, "pint") == 0)
 		pint(top);
-	else if (strcmp(clear_ins, "pop") == 0 && numcode == -1 && other == NULL)
+	else if (strcmp(clear_ins, "pop") == 0)
 		pop(top);
-	else if (strcmp(clear_ins, "swap") == 0 && numcode == -1 && other == NULL)
+	else if (strcmp(clear_ins, "swap") == 0)
 		swap(top);
-	else if (strcmp(clear_ins, "nop") == 0 && numcode == -1 && other == NULL)
+	else if (strcmp(clear_ins, "nop") == 0)
 		nop();
 	else
 	{
-			fprintf(stderr, "L%i: unknown instruction %s\n", i, strtok(opcode, "\n"));
+			fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
 			exit(EXIT_FAILURE);
 	}
 }
