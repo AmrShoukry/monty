@@ -36,7 +36,6 @@ void processInstruction(int i, stack_t **top, char *p)
 {
 	char *instruction = strtok(p, " ");
 	char *opcode = strtok(NULL, " ");
-	char *other = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
 	int numcode = check_opcode(opcode);
 
