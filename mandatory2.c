@@ -67,3 +67,35 @@ void pchar(stack_t **top, int i)
 	}
 	printf("%c\n", value);
 }
+
+
+
+
+
+/**
+ * pstr - print top values as a string
+ *
+ * Description: 'Function'
+ *
+ * @top: top node of the stack
+ *
+ * Return: void.
+ */
+
+void pstr(stack_t **top)
+{
+	stack_t *current = *top;
+	int value;
+	int stop = 0;
+
+	while (current != NULL && stop == 0)
+	{
+		value = current->n;
+		if (!((value >= 65 && value <= 90) || (value >= 97 && value <= 122)))
+			stop = 1;
+		else
+			printf("%c", current->n);
+		current = current->prev;
+	}
+	printf("\n");
+}

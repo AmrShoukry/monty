@@ -55,5 +55,6 @@ void freeCharPointer(char **freeMe);
 void sub(stack_t **top, int i);
 void pchar(stack_t **top, int i);
 void divide(stack_t **top, int i);
+void pstr(stack_t **top);
 
 #endif
