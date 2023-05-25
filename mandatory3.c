@@ -29,7 +29,13 @@ void divide(stack_t **top, int i)
 {
 	if (top == NULL || *top == NULL || (*top)->prev == NULL)
 	{
-		fprintf(stderr, "L%i: can't add, stack too short\n", i);
+		fprintf(stderr, "L%i: can't div, stack too short\n", i);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*top)->n == 0)
+	{
+		fprintf(stderr, "L%i: division by zero\n", i);
 		exit(EXIT_FAILURE);
 	}
 
