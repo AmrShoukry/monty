@@ -7,23 +7,23 @@
  * Return: op_code digits
  */
 
-int check_opcode(char *op_code)
+int check_argument(char *argument)
 {
 	int i = 0;
 
-	if (op_code == NULL)
+	if (argument == NULL)
 		return (-1);
 
-	while (op_code[i] != '\0' && op_code[i] != '\n')
+	while (argument[i] != '\0' && argument[i] != '\n')
 	{
-		if (!(op_code[i] >= '0' && op_code[i] <= '9'))
+		if (!(argument[i] >= '0' && argument[i] <= '9'))
 		{
 			return (-1);
 		}
 		i++;
 	}
 
-	return (atoi(op_code));
+	return (atoi(argument));
 }
 
 /**
@@ -35,26 +35,36 @@ int check_opcode(char *op_code)
 void processInstruction(int i, stack_t **top, char *p)
 {
 	char *instruction = strtok(p, " ");
-	char *opcode = strtok(NULL, " ");
+	char *argument = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
-	int numcode = check_opcode(opcode);
+	int numcode = check_argument(argument);
 
-	if (strcmp(clear_ins, "push") == 0 && numcode != -1)
-		push(top, numcode);
+	if (strcmp(clear_ins, "push") == 0)
+	{
+		if (numcode == -1)
+		{
+			fprintf(stderr, "L%i: usage: push integer\n", i);
+			exit(EXIT_FAILURE);
+		}
+		else
+			push(top, numcode);
+	}
 	else if (strcmp(clear_ins, "pall") == 0)
 		pall(top);
 	else if (strcmp(clear_ins, "pint") == 0)
-		pint(top);
+		pint(top, i);
 	else if (strcmp(clear_ins, "pop") == 0)
-		pop(top);
+		pop(top, i);
 	else if (strcmp(clear_ins, "swap") == 0)
-		swap(top);
+		swap(top, i);
+	else if (strcmp(clear_ins, "add") == 0)
+		add(top, i);
 	else if (strcmp(clear_ins, "nop") == 0)
 		nop();
 	else
 	{
-			fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
-			exit(EXIT_FAILURE);
+		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
+		exit(EXIT_FAILURE);
 	}
 }
 

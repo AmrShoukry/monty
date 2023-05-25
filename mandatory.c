@@ -48,7 +48,7 @@ void pall(stack_t **top)
 
 	if (top == NULL || *top == NULL)
 	{
-		//TODO this needs to print L<line_number>: can't pint, stack empty
+		return;
 	}
 
 	while (current != NULL)
@@ -66,15 +66,17 @@ void pall(stack_t **top)
  * Description: 'Function'
  *
  * @top: top node of the stack
+ * @i: line number
  *
  * Return: void.
  */
 
-void pint(stack_t **top)
+void pint(stack_t **top, int i)
 {
 	if (top == NULL || *top == NULL)
 	{
-		//TODO this needs to print L<line_number>: can't pint, stack empty
+		fprintf(stderr, "L%i: can't pint, stack empty\n", i);
+		exit(EXIT_FAILURE);
 	}
 
 	printf("%d\n", (*top)->n);
@@ -86,16 +88,21 @@ void pint(stack_t **top)
  * Description: 'Function'
  *
  * @top: top node of the stack
+ * @i: line number
  *
  * Return: the removed node.
  */
 
-stack_t *pop(stack_t **top)
+stack_t *pop(stack_t **top, int i)
 {
 	stack_t *temp = NULL;
 
 	if (top == NULL || *top == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "L%i: can't pop an empty stack\n", i);
+		exit(EXIT_FAILURE);
+	}
+
 	temp = *top;
 
 
@@ -114,16 +121,20 @@ stack_t *pop(stack_t **top)
  * Description: 'Function'
  *
  * @top: top node of the stack
+ * @i: line number
  *
  * Return: new top node.
  */
 
-stack_t *swap(stack_t **top)
+stack_t *swap(stack_t **top, int i)
 {
 	stack_t *temp;
 
 	if (top == NULL || *top == NULL || (*top)->prev == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "L%i: can't swap, stack too short\n", i);
+		exit(EXIT_FAILURE);
+	}
 
 	temp = (*top)->prev;
 

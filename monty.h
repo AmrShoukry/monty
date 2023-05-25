@@ -38,9 +38,10 @@ typedef struct instruction_s
 
 void push(stack_t **top, int n);
 void pall(stack_t **top);
-void pint(stack_t **top);
-stack_t *pop(stack_t **top);
-stack_t *swap(stack_t **top);
+void pint(stack_t **top, int i);
+stack_t *pop(stack_t **top, int i);
+stack_t *swap(stack_t **top, int i);
+void add(stack_t **top, int i);
 void nop(void);
 
 void processInstruction(int i, stack_t **top, char *p);
