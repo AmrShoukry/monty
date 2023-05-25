@@ -8,8 +8,13 @@
 
 char *trim_text(char *text)
 {
-		while (*text == ' ' || *text == 9)
-			text++;
+	int i = 0;
+		while (i < strlen(text))
+		{
+			if (text[i] == '\t')
+				text[i] = ' ';
+			i++;
+		}
 		return (text);
 }
 
