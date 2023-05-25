@@ -95,6 +95,8 @@ void processInstruction(int i, stack_t **top, char *p)
 		pchar(top, i);
 	else if (strcmp(clear_ins, "nop") == 0 || clear_ins[0] == '#')
 		nop();
+	else if (strcmp(clear_ins, "sub") == 0)
+		sub(top, i);
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
