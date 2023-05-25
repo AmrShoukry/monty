@@ -15,13 +15,15 @@ char *trim_text(char *text)
 
 /**
  * check_argument - convert argument into digits
+ * @numcode: argument digits
  * @argument: argument number
- * Return: argument digits
+ * Return: if it failed or not
  */
 
-int check_argument(char *argument)
+int check_argument(int *numcode, char *argument)
 {
 	int i = 0;
+	int operator = 1;
 
 	if (argument == NULL)
 		return (-1);
@@ -30,12 +32,16 @@ int check_argument(char *argument)
 	{
 		if (!(argument[i] >= '0' && argument[i] <= '9'))
 		{
-			return (-1);
+			if (operator == 1 && argument[i] == '-')
+				operator = -1;
+			else
+				return (-1);
 		}
 		i++;
 	}
 
-	return (atoi(argument));
+	*numcode = atoi(argument);
+	return (0);
 }
 
 /**
@@ -50,14 +56,15 @@ void processInstruction(int i, stack_t **top, char *p)
 	char *instruction = strtok(trimmed_p, " ");
 	char *argument = strtok(NULL, " ");
 	char *clear_ins = strtok(instruction, "\n");
-	int numcode = check_argument(argument);
+	int numcode;
+	int status = check_argument(&numcode, argument);
 
 	if (clear_ins == NULL)
 		return;
 
 	if (strcmp(clear_ins, "push") == 0)
 	{
-		if (numcode == -1)
+		if (status == -1)
 		{
 			fprintf(stderr, "L%i: usage: push integer\n", i);
 			exit(EXIT_FAILURE);
