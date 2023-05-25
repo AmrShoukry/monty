@@ -47,7 +47,9 @@ void pall(stack_t **top)
 	stack_t *current = *top;
 
 	if (top == NULL || *top == NULL)
-		return;
+	{
+		//TODO this needs to print L<line_number>: can't pint, stack empty
+	}
 
 	while (current != NULL)
 	{
@@ -71,7 +73,9 @@ void pall(stack_t **top)
 void pint(stack_t **top)
 {
 	if (top == NULL || *top == NULL)
-		return;
+	{
+		//TODO this needs to print L<line_number>: can't pint, stack empty
+	}
 
 	printf("%d\n", (*top)->n);
 }
