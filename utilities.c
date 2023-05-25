@@ -107,6 +107,9 @@ void processInstruction(int i, stack_t **top, char *p)
 		pstr(top);
 	else if (strcmp(clear_ins, "rotl") == 0)
 		rotl(top);
+	else if (strcmp(clear_ins, "rotr") == 0)
+		rotl(top);
+
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

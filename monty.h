@@ -59,5 +59,6 @@ void pstr(stack_t **top);
 void mul(stack_t **top, int i);
 void mod(stack_t **top, int i);
 void rotl(stack_t **top);
+void rotr(stack_t **top);
 
 #endif

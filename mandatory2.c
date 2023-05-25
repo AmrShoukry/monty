@@ -104,7 +104,7 @@ void pstr(stack_t **top)
 
 
 /**
- * rotl - print top values as a string
+ * rotl - rotate stack to the left
  *
  * Description: 'Function'
  *
