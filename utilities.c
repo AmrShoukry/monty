@@ -1,14 +1,20 @@
 
 #include "monty.h"
 
+/**
+ * check_opcode - convert opcode into digits
+ * @op_code: op_code number
+ * Return: op_code digits
+ */
+
 int check_opcode(char *op_code)
 {
 	int i = 0;
 
 	if (op_code == NULL)
-			return (-1);
+		return (-1);
 
-	while(op_code[i] != '\0' && op_code[i] != '\n')
+	while (op_code[i] != '\0' && op_code[i] != '\n')
 	{
 		if (!(op_code[i] >= '0' && op_code[i] <= '9'))
 		{
@@ -22,10 +28,11 @@ int check_opcode(char *op_code)
 
 /**
  * processInstruction - chooses which function the line needs
+ * @i: line number
  * @p: line from file
  * @top: the top of the stack
  */
-void processInstruction(stack_t **top, char *p)
+void processInstruction(int i, stack_t **top, char *p)
 {
 	char *instruction = strtok(p, " ");
 	char *opcode = strtok(NULL, " ");
@@ -46,7 +53,10 @@ void processInstruction(stack_t **top, char *p)
 	else if (strcmp(clear_ins, "nop") == 0 && numcode == -1 && other == NULL)
 		nop();
 	else
-		printf("Invalid\n");
+	{
+			fprintf(stderr, "L%i: unknown instruction %s\n", i, strtok(opcode, "\n"));
+			exit(EXIT_FAILURE);
+	}
 }
 
 /**
@@ -60,7 +70,7 @@ stack_t *allocateStack()
 	if (newStackMember == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(8);
+		exit(EXIT_FAILURE);
 	}
 	newStackMember->next = NULL;
 	newStackMember->prev = NULL;

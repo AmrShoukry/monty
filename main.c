@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	char *buffer = NULL;
 	size_t bufSize = 0;
+	int i = 1;
 
 	if (argc != 2)
 	{
@@ -32,8 +33,9 @@ int main(int argc, char *argv[])
 
 	while (getline(&buffer, &bufSize, fptr) != -1)
 	{
-		processInstruction(&stack, buffer);
+		processInstruction(i, &stack, buffer);
 		freeCharPointer(&buffer);
+		i++;
 	}
 	freeCharPointer(&buffer);
 	fclose(fptr);

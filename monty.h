@@ -43,7 +43,7 @@ stack_t *pop(stack_t **top);
 stack_t *swap(stack_t **top);
 void nop(void);
 
-void processInstruction(stack_t **top, char *p);
+void processInstruction(int i, stack_t **top, char *p);
 stack_t *allocateStack();
 void freeStack(stack_t **stack);
 void freeCharPointer(char **freeMe);
