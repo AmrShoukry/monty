@@ -56,5 +56,7 @@ void sub(stack_t **top, int i);
 void pchar(stack_t **top, int i);
 void divide(stack_t **top, int i);
 void pstr(stack_t **top);
+void mul(stack_t **top, int i);
+void mod(stack_t **top, int i);
 
 #endif
