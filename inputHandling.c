@@ -10,7 +10,6 @@
 
 int instructions(int i, stack_t **top, char *clear_ins)
 {
-
 	if (strcmp(clear_ins, "pall") == 0)
 	{
 		pall(top);
@@ -44,9 +43,10 @@ int instructions(int i, stack_t **top, char *clear_ins)
 		return (1);
 	}
 	else
+	{
 		return (moreInstructions(i, top, clear_ins));
-
-
+	}
+	return (0);
 }
 
 /**
