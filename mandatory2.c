@@ -120,7 +120,7 @@ void rotl(stack_t **top)
 
 	if (current == NULL || current->prev == NULL)
 		return;
-	
+
 	if (current->prev->prev == NULL)
 	{
 		swap(top, 0);

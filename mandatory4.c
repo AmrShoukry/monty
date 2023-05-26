@@ -18,7 +18,7 @@ void rotr(stack_t **top)
 
 	if (current == NULL || current->prev == NULL)
 		return;
-	
+
 	if (current->prev->prev == NULL)
 	{
 		swap(top, 0);
@@ -29,6 +29,7 @@ void rotr(stack_t **top)
 	{
 		current = current->prev;
 	}
+
     temp = current->next;
     temp->prev = NULL;
     current->prev = (*top);

@@ -2,8 +2,6 @@
 #include "monty.h"
 #include <stdio.h>
 
-int mode = 0;
-
 /**
  * main - handles the file
  * opens the file specified in argv[1
@@ -18,6 +16,8 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 	size_t bufSize = 0;
 	int i = 1;
+	int mode = 0;
+
 
 	if (argc != 2)
 	{
