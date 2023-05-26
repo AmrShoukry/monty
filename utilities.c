@@ -58,8 +58,9 @@ int check_argument(int *numcode, char *argument)
  * @i: line number
  * @p: line from file
  * @top: the top of the stack
+ * @mode: stack or queue mode
  */
-void processInstruction(int i, stack_t **top, char *p)
+void processInstruction(int i, stack_t **top, char *p, int *mode)
 {
 	char *trimmed_p = trim_text(p);
 	char *instruction = strtok(trimmed_p, " ");
@@ -79,16 +80,16 @@ void processInstruction(int i, stack_t **top, char *p)
 			exit(EXIT_FAILURE);
 		}
 		else
-			push(top, numcode);
+			push(top, numcode, mode);
 	}
 	else if (strcmp(clear_ins, "rotr") == 0)
 		rotr(top);
 	else if (strcmp(clear_ins, "stack") == 0)
-		mode = 0;
-	else if (strcmp(clear_ins, "queue") == 0)
-		mode = 1;
-	else if (instructions(i, top, clear_ins))
+		*mode = 0;
+	else if (instructions(i, top, clear_ins) == 1)
 		return;
+	else if (strcmp(clear_ins, "queue") == 0)
+		*mode = 1;
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

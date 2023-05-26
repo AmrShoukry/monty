@@ -7,12 +7,13 @@
  *
  * @top: top node of the stack
  * @n: the value to be added
+ * @mode: stack or queue
  *
  * Return: void.
  */
 
 
-void push(stack_t **top, int n)
+void push(stack_t **top, int n, int *mode)
 {
 	stack_t *newStackMember = allocateStack();
 	stack_t *current = *top;
@@ -24,7 +25,7 @@ void push(stack_t **top, int n)
 	}
 	else
 	{
-		if (mode == 0)
+		if (*mode == 0)
 		{
 			(*top)->next = newStackMember;
 			(*top)->next->prev = (*top);

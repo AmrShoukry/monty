@@ -9,6 +9,9 @@
  * @argv: the args
  * Return: exit code
  */
+
+
+
 int main(int argc, char *argv[])
 {
 	FILE *fptr;
@@ -17,7 +20,6 @@ int main(int argc, char *argv[])
 	size_t bufSize = 0;
 	int i = 1;
 	int mode = 0;
-
 
 	if (argc != 2)
 	{
@@ -35,7 +37,7 @@ int main(int argc, char *argv[])
 
 	while (getline(&buffer, &bufSize, fptr) != -1)
 	{
-		processInstruction(i, &stack, buffer);
+		processInstruction(i, &stack, buffer, &mode);
 		freeCharPointer(&buffer);
 		i++;
 	}
