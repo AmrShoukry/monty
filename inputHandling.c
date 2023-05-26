@@ -66,7 +66,7 @@ int moreInstructions(int i, stack_t **top, char *clear_ins)
 	}
 	else if (strcmp(clear_ins, "div") == 0)
 	{
-		div(top, i);
+		divide(top, i);
 		return (1);
 	}
 	else if (strcmp(clear_ins, "mul") == 0)
