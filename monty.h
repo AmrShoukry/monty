@@ -63,4 +63,8 @@ void mod(stack_t **top, int i);
 void rotl(stack_t **top);
 void rotr(stack_t **top);
 
+/*betty slaves*/
+int instructions(int i, stack_t **top, char *clear_ins);
+int moreInstructions(int i, stack_t **top, char *clear_ins);
+
 #endif

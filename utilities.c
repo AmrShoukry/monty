@@ -81,44 +81,22 @@ void processInstruction(int i, stack_t **top, char *p)
 		else
 			push(top, numcode);
 	}
-	else if (strcmp(clear_ins, "pall") == 0)
-		pall(top);
-	else if (strcmp(clear_ins, "pint") == 0)
-		pint(top, i);
-	else if (strcmp(clear_ins, "pop") == 0)
-		pop(top, i);
-	else if (strcmp(clear_ins, "swap") == 0)
-		swap(top, i);
-	else if (strcmp(clear_ins, "add") == 0)
-		add(top, i);
-	else if (strcmp(clear_ins, "pchar") == 0)
-		pchar(top, i);
-	else if (strcmp(clear_ins, "nop") == 0 || clear_ins[0] == '#')
-		nop();
-	else if (strcmp(clear_ins, "sub") == 0)
-		sub(top, i);
-	else if (strcmp(clear_ins, "div") == 0)
-		divide(top, i);
-	else if (strcmp(clear_ins, "mul") == 0)
-		mul(top, i);
-	else if (strcmp(clear_ins, "mod") == 0)
-		mod(top, i);
-	else if (strcmp(clear_ins, "pstr") == 0)
-		pstr(top);
-	else if (strcmp(clear_ins, "rotl") == 0)
-		rotl(top);
 	else if (strcmp(clear_ins, "rotr") == 0)
-		rotl(top);
+		rotr(top);
 	else if (strcmp(clear_ins, "stack") == 0)
 		mode = 0;
 	else if (strcmp(clear_ins, "queue") == 0)
 		mode = 1;
+	else if (instructions(i, top, clear_ins))
+		return;
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);
 		exit(EXIT_FAILURE);
 	}
 }
+
+
 
 /**
  * allocateStack - ...
