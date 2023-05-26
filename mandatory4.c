@@ -30,11 +30,11 @@ void rotr(stack_t **top)
 		current = current->prev;
 	}
 
-    temp = current->next;
-    temp->prev = NULL;
-    current->prev = (*top);
-    current->next = NULL;
-    (*top)->next = current;
+	temp = current->next;
+	temp->prev = NULL;
+	current->prev = (*top);
+	current->next = NULL;
+	(*top)->next = current;
 
-    (*top) = current;
+	(*top) = current;
 }
