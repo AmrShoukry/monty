@@ -109,7 +109,10 @@ void processInstruction(int i, stack_t **top, char *p)
 		rotl(top);
 	else if (strcmp(clear_ins, "rotr") == 0)
 		rotl(top);
-
+	else if (strcmp(clear_ins, "stack") == 0)
+		mode = 0;
+	else if (strcmp(clear_ins, "queue") == 0)
+		mode = 1;
 	else
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", i, instruction);

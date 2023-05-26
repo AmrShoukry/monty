@@ -15,6 +15,7 @@
 void push(stack_t **top, int n)
 {
 	stack_t *newStackMember = allocateStack();
+	stack_t *current = *top;
 
 	if ((*top) == NULL)
 	{
@@ -23,11 +24,24 @@ void push(stack_t **top, int n)
 	}
 	else
 	{
-		(*top)->next = newStackMember;
-		(*top)->next->prev = (*top);
+		if (mode == 0)
+		{
+			(*top)->next = newStackMember;
+			(*top)->next->prev = (*top);
 
-		(*top) = (*top)->next;
-		(*top)->n = n;
+			(*top) = (*top)->next;
+			(*top)->n = n;
+		}
+		else
+		{
+			while (current->prev != NULL)
+			{
+				current = current->prev;
+			}
+			current->prev = newStackMember;
+			current->prev->next = current;
+			current->prev->n = n;
+		}
 	}
 }
 
@@ -47,9 +61,7 @@ void pall(stack_t **top)
 	stack_t *current = *top;
 
 	if (top == NULL || *top == NULL)
-	{
 		return;
-	}
 
 	while (current != NULL)
 	{

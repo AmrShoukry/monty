@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * rotl - rotate stack to the right
+ * rotr - rotate stack to the right
  *
  * Description: 'Function'
  *
@@ -36,4 +36,5 @@ void rotr(stack_t **top)
     (*top)->next = current;
 
     (*top) = current;
+    return (*top);
 }

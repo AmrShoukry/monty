@@ -2,6 +2,8 @@
 #include "monty.h"
 #include <stdio.h>
 
+int mode = 0;
+
 /**
  * main - handles the file
  * opens the file specified in argv[1
