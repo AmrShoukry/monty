@@ -36,5 +36,4 @@ void rotr(stack_t **top)
     (*top)->next = current;
 
     (*top) = current;
-    return (*top);
 }
